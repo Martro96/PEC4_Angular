@@ -8,7 +8,7 @@ import { Article } from './article-item.interface';
   styleUrl: './article-item.component.css'
 })
 export class ArticleItemComponent {
- article: Article = {
+ product: Article = {
   name: 'Zanahoria',
   imageUrl: 'https://soycomocomo.es/media/2019/03/zanahorias.jpg',
   price: 1,
