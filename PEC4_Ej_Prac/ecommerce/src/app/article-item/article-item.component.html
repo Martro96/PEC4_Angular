@@ -1,5 +1,4 @@
-<!--No se me renderiza bien el componente -->
-<div class="article-item" [ngClass]="{'on-sale': product.isOnSale}"> <!--Añadimos la propiedad dinámica ngClass para saber si está o no en venta-->
+<div class="article-item" [ngClass]="{'in-stock': product.isOnSale, 'out-of-stock': !product.isOnSale}">
     <img [src]="product.imageUrl" alt="Imagen {{product.name}}">
     
     <div class="article-item-name">
@@ -7,11 +6,11 @@
     </div>
     
     <div class="article-item-price">
-        <p>{{product.price}}</p>
+        <p>{{product.price}} €</p>
     </div>
 
     <div class="article-item-quantity">
-        <button (click)="decreaseQuantity()">-</button>
+        <button (click)="decreaseQuantity()" [disabled]="product.quantityInCart <= 0">-</button>
         <p>{{product.quantityInCart}}</p> <!-- Mostrar la cantidad del producto en el carrito -->
         <button (click)="increaseQuantity()">+</button>
     </div>

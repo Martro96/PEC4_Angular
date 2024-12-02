@@ -1,9 +1,11 @@
 /* Estilo para el artículo */
 .article-item {
     display: flex;
+    flex-direction: column;
+    width:250px;
     align-items: center;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 5px;
     margin-bottom: 15px;
     transition: all 0.3s ease;
@@ -11,10 +13,11 @@
 
 /* Estilo para la imagen */
 .article-item img {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height:auto;
     object-fit: cover;
-    margin-right: 15px;
+    margin: auto;
+    border-radius: 10px;
 }
 
 /* Nombre del producto */
@@ -22,6 +25,7 @@
     font-size: 1.2rem;
     font-weight: bold;
     margin: 0;
+    padding: 5px;
 }
 
 /* Precio del producto */
@@ -34,8 +38,9 @@
 /* Sección de cantidad */
 .article-item-quantity {
     display: flex;
+    margin: auto;
+    padding: 10px;
     align-items: center;
-    margin-left: auto;
 }
 
 .article-item-quantity button {
