@@ -16,19 +16,18 @@ export class ArticleItemComponent {
   quantityInCart: 5
  }
 
- //Métodos para los botones de producto
+// Métodos para los botones de producto
+increaseQuantity(): void {
+  if (this.product.isOnSale) {
+    this.product.quantityInCart++;  // Aumenta la cantidad en el carrito
+    console.log(`Cantidad de ${this.product.name}: ${this.product.quantityInCart}`);
+  }
+}
 
- quantity: number = 0;  
-
- increaseQuantity(): void {
-   this.quantity++;
-   console.log(`Cantidad de ${this.product.name}: ${this.quantity}`);
- }
-
- decreaseQuantity(): void {
-   if (this.quantity > 0) {
-     this.quantity--;
-     console.log(`Cantidad de ${this.product.name}: ${this.quantity}`);
-   }
+decreaseQuantity(): void {
+  if (this.product.isOnSale && this.product.quantityInCart > 0) {
+    this.product.quantityInCart--;  // Disminuye la cantidad en el carrito
+    console.log(`Cantidad de ${this.product.name}: ${this.product.quantityInCart}`);
+  }
 }
 }
