@@ -2,12 +2,11 @@
 Explica qué realiza cada una de las siguientes opciones de Angular CLI.
 
 - **ng new**:
-Es el comando para empezar un proyecto Angular desde cero. Te genera toda la estructura básica del proyecto, instala las dependencias y te pregunta cosas como si quieres usar rutas o qué tipo de CSS prefieres. Básicamente, es el punto de partida.
-
+Es el comando para empezar un proyecto Angular desde cero. Genera toda la estructura básica del proyecto, instala las dependencias y te pregunta cómo quieres usar las rutas o qué tipo de CSS prefieres.
 - **ng generate**:
-Este comando te ayuda a crear partes específicas de tu proyecto sin hacerlo a mano.
+Este comando te ayuda a crear partes específicas de tu proyecto sin hacerlo a mano. Se añade cualquiera de los siguientes comandos:
     - **component**:
-    Crea un componente nuevo. Te genera los archivos necesarios (HTML, CSS, TypeScript y de pruebas) para que tengas una sección funcional en tu aplicación, como una página o un widget.
+    Crea un componente nuevo. Genera los archivos necesarios (HTML, CSS, TypeScript y de pruebas) para tener una sección funcional en la aplicación, como una página o un widget.
     - **directive**:
     Sirve para generar directivas. Estas son pequeñas funciones que le agregan o cambian comportamiento a elementos del HTML, como ocultar algo o repetir cosas.
     - **enum**:
@@ -21,8 +20,8 @@ Este comando te ayuda a crear partes específicas de tu proyecto sin hacerlo a m
     - **service**:
     Te hace un servicio, que es donde normalmente pones la lógica que quieres usar en varios lugares, como conectarte a una API o gestionar datos.
 - **ng serve**:
-Este comando lanza tu aplicación en un servidor local para que la veas en el navegador. Además, si haces cambios en el código, la página se actualiza sola. Súper práctico para trabajar en tiempo real.
+Este comando lanza tu aplicación en un servidor local para que la veas en el navegador. Además, si haces cambios en el código, la página se actualiza sola. 
 - **ng test**:
-Ejecuta las pruebas unitarias que hayas configurado en tu proyecto. Es útil para asegurarte de que todo funcione bien y no se rompa nada con los cambios.
+Ejecuta las pruebas unitarias que hayas configurado en tu proyecto. 
 - **ng version**:
-Muestra la versión de Angular CLI que tienes instalada, junto con las versiones de las herramientas principales que usas en tu proyecto, como Angular Core, TypeScript y RxJS. Ideal para saber si tienes todo actualizado.
+Muestra la versión de Angular CLI que tienes instalada, junto con las versiones de las herramientas principales que usas en tu proyecto, como Angular Core, TypeScript y RxJS. 
