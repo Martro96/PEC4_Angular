@@ -6,5 +6,9 @@
     <div class="article-item-price">
         <p>{{product.price}}</p>
     </div>
-    <!--Falta añadir botones y aplicar estilo-->
+    <div class="article-item-quantity">
+        <button (click)="decreaseQuantity()">-</button>
+        <p>{{quantity}}</p>
+        <button (click)="increaseQuantity()">+</button>
+    </div>
 </div>

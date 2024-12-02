@@ -15,4 +15,20 @@ export class ArticleItemComponent {
   isOnSale: true,
   quantityInCart: 5
  }
+
+ //Métodos para los botones de producto
+
+ quantity: number = 0;  
+
+ increaseQuantity(): void {
+   this.quantity++;
+   console.log(`Cantidad de ${this.product.name}: ${this.quantity}`);
+ }
+
+ decreaseQuantity(): void {
+   if (this.quantity > 0) {
+     this.quantity--;
+     console.log(`Cantidad de ${this.product.name}: ${this.quantity}`);
+   }
+}
 }
