@@ -1,17 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core'; //Añadimos el ViewEncapsulation
 import { Article } from './article-item.interface';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
-  /*selector: 'app-article-item',
-  imports: [],
-  templateUrl: './article-item.component.html',
-  styleUrl: './article-item.component.css'*/
   selector: 'app-article-item',
   standalone: true, // Indica que es un componente independiente
   imports: [CommonModule], // Importa CommonModule para habilitar ngClass y otras directivas comunes
   templateUrl: './article-item.component.html',
-  styleUrls: ['./article-item.component.css']
+  styleUrls: ['./article-item.component.css'],
+  encapsulation: ViewEncapsulation.None // Cambiamos según se elija el método de encapsulación de estilos
 })
 export class ArticleItemComponent {
  products: Article[] = [

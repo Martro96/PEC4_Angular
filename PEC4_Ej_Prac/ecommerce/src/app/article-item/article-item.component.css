@@ -6,43 +6,52 @@
     justify-content: center; /* Centra los productos horizontalmente */
     padding: 16px;
   }
-  
+
 /* Estilo para el artículo */
 .article-item {
     display: flex;
     flex-direction: column;
     width:250px;
-    align-items: center;
+    align-items: stretch;
+    justify-content: flex-start;
     padding: 10px;
     border: 1px solid #000000;
     border-radius: 5px;
     margin-bottom: 15px;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-/* Estilo para la imagen */
+/* Estilo para la imagen */ 
 .article-item img {
-    width: 100%;
-    height:auto;
-    object-fit: cover;
-    margin: auto;
-    border-radius: 10px;
+    width: 100%; 
+    height: 200px;
+    object-fit: cover; 
+    margin: 0; 
+    border-radius: 10px 10px 0 0; 
+    flex-grow: 0; 
+    align-self: stretch; 
 }
 
 /* Nombre del producto */
 .article-item-name p {
     font-size: 1.2rem;
     font-weight: bold;
-    margin: 0;
     padding: 5px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 /* Precio del producto */
 .article-item-price p {
     font-size: 1.1rem;
     color: #333;
-    margin: 0;
-}
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;}
 
 /* Sección de cantidad */
 .article-item-quantity {
@@ -89,3 +98,11 @@
 .article-item:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+/*PARA EL EJERCICIO 6*/
+/*Estilo emulated*/
+.price {
+    color: green !important;
+    font-weight: bold;
+  }
+  
