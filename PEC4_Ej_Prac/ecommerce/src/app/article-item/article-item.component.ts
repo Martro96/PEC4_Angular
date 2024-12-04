@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule], // Importa CommonModule para habilitar ngClass y otras directivas comunes
   templateUrl: './article-item.component.html',
   styleUrls: ['./article-item.component.css'],
-  encapsulation: ViewEncapsulation.None // Cambiamos según se elija el método de encapsulación de estilos
+  encapsulation: ViewEncapsulation.ShadowDom // Cambiamos según se elija el método de encapsulación de estilos
 })
 export class ArticleItemComponent {
  products: Article[] = [
