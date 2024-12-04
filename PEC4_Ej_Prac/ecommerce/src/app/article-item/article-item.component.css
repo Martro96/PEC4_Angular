@@ -1,3 +1,12 @@
+/* Contenedor general */
+.products-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los productos pasen a una nueva fila si no caben */
+    gap: 16px; /* Espacio entre productos */
+    justify-content: center; /* Centra los productos horizontalmente */
+    padding: 16px;
+  }
+  
 /* Estilo para el artículo */
 .article-item {
     display: flex;
