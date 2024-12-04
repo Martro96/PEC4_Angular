@@ -14,26 +14,35 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./article-item.component.css']
 })
 export class ArticleItemComponent {
- product: Article = {
+ products: Article[] = [
+  {
   name: 'Zanahoria',
   imageUrl: 'https://soycomocomo.es/media/2019/03/zanahorias.jpg',
   price: 1,
   isOnSale: true,
-  quantityInCart: 5
- }
+  quantityInCart: 5  
+  },
+    {
+      name: 'Tomate',
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQj7Sc0I1cZ7uPRrqFqaH7PwZqTaHCp6p49w&s', 
+      price: 2,
+      isOnSale: false,
+      quantityInCart: 0,
+    },
+ ]
 
-// Métodos para los botones de producto
-increaseQuantity(): void {
-  if (this.product.isOnSale) {
-    this.product.quantityInCart++;  // Aumenta la cantidad en el carrito
-    console.log(`Cantidad de ${this.product.name}: ${this.product.quantityInCart}`);
+  // Métodos para los botones de producto
+  increaseQuantity(product: Article): void { //Al haber creado el array de productos, modificamos el método pasándole por parámetro el producto Article
+    if (product.isOnSale) {
+      product.quantityInCart++; // Aumenta la cantidad en el carrito
+      console.log(`Cantidad de ${product.name}: ${product.quantityInCart}`);
+    }
   }
-}
 
-decreaseQuantity(): void {
-  if (this.product.isOnSale && this.product.quantityInCart > 0) {
-    this.product.quantityInCart--;  // Disminuye la cantidad en el carrito
-    console.log(`Cantidad de ${this.product.name}: ${this.product.quantityInCart}`);
+  decreaseQuantity(product: Article): void {
+    if (product.isOnSale && product.quantityInCart > 0) {
+      product.quantityInCart--; // Disminuye la cantidad en el carrito
+      console.log(`Cantidad de ${product.name}: ${product.quantityInCart}`);
+    }
   }
-}
 }
