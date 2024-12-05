@@ -1,5 +1,6 @@
 <div class="products-container">
-    <!-- Añadimos *ngFor para recorrer el array de productos y mostrarlos todos -->
+    <!-- Antes del ejercicio 7: 
+    Añadimos *ngFor para recorrer el array de productos y mostrarlos todos 
     <div *ngFor="let product of products" class="article-item"
         [ngClass]="{'in-stock': product.isOnSale, 'out-of-stock': !product.isOnSale}">
         <img [src]="product.imageUrl" alt="Imagen {{product.name}}">
@@ -9,15 +10,27 @@
         </div>
 
         <div class="article-item-price"> 
-            <p class="price">{{product.price}} €</p> <!-- Añadimos clase price -->
+            <p class="price">{{product.price}} €</p> 
         </div>
-
-        <!-- Botones -->
+        
+        Botones
         <div class="article-item-quantity" *ngIf="product.isOnSale">
-            <!-- Añadimos el *ngIf="product.isOnSale" para mostrar los botones de cantidad sólo si está en venta -->
+            Añadimos el *ngIf="product.isOnSale" para mostrar los botones de cantidad sólo si está en venta 
             <button (click)="decreaseQuantity(product)" [disabled]="product.quantityInCart <= 0">-</button>
             <p>{{product.quantityInCart}}</p>
             <button (click)="increaseQuantity(product)">+</button>
         </div>
-    </div>
+    </div> -->
+    <!-- Para el ejercicio 7 -->
+    <div class="article-item" [ngClass]="{ 'on-sale': article.isOnSale }">
+        <h3>{{ article.name }}</h3>
+        <img [src]="article.imageUrl" alt="{{ article.name }}">
+        <p>Price: {{ article.price }}€</p>
+        <div>
+          <button (click)="decreaseQuantity()" [disabled]="article.quantityInCart <= 0">-</button>
+          <span>{{ article.quantityInCart }}</span>
+          <button (click)="increaseQuantity()">+</button>
+        </div>
+      </div>
+
 </div>

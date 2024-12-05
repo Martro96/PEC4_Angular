@@ -1,9 +1,9 @@
 /* Contenedor general */
 .products-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que los productos pasen a una nueva fila si no caben */
-    gap: 16px; /* Espacio entre productos */
-    justify-content: center; /* Centra los productos horizontalmente */
+    flex-wrap: wrap; 
+    gap: 16px; 
+    justify-content: center; 
     padding: 16px;
   }
 
@@ -84,14 +84,14 @@
 
 /* Cuando el producto está en stock */
 .article-item.in-stock {
-    background-color: #e0f7e0; /* Verde claro para indicar en stock */
-    border-color: #4caf50; /* Borde verde */
+    background-color: #e0f7e0; 
+    border-color: #4caf50; 
 }
 
 /* Cuando el producto está agotado */
 .article-item.out-of-stock {
-    background-color: #f8d7da; /* Rojo claro para indicar agotado */
-    border-color: #dc3545; /* Borde rojo */
+    background-color: #f8d7da; 
+    border-color: #dc3545; 
 }
 
 /* Efecto al pasar el ratón sobre el artículo */

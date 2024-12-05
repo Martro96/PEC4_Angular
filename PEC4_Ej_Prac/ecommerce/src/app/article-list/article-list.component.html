@@ -1,0 +1,11 @@
+<h2>Lista de artículos</h2>
+<div *ngFor="let article of products">
+  <app-article-item [article]="article"></app-article-item>
+</div>
+
+<!-- Pruebo otras sintaxis para el bucle for por si no estuviera funcionando
+<h2>Lista de artículos</h2>
+<div *ngFor="let article of products; let idx = index; let e = even; trackBy: trackById">
+  <app-article-item [article]="article"></app-article-item>
+  <p>Item #{{ idx }}: {{ article.name }} (Even: {{ e }})</p>
+</div>-->

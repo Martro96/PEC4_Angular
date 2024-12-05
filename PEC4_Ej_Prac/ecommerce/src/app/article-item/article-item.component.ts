@@ -1,46 +1,39 @@
-import { Component, ViewEncapsulation } from '@angular/core'; //Añadimos el ViewEncapsulation
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { Article } from './article-item.interface';
 import { CommonModule } from '@angular/common';
 
+export interface ArticleQuantityChange {
+  article: Article;
+  change: number; // Incremento o decremento
+}
 
 @Component({
   selector: 'app-article-item',
-  standalone: true, // Indica que es un componente independiente
-  imports: [CommonModule], // Importa CommonModule para habilitar ngClass y otras directivas comunes
-  templateUrl: './article-item.component.html',
-  styleUrls: ['./article-item.component.css'],
-  encapsulation: ViewEncapsulation.ShadowDom // Cambiamos según se elija el método de encapsulación de estilos
+  standalone: true, // Es un componente independiente
+  imports: [CommonModule], // Permite usar directivas comunes como *ngFor o ngClass
+  templateUrl: './article-item.component.html', // Se mantiene el template externo
+  styleUrls: ['./article-item.component.css'], // Se mantienen los estilos externos
+  encapsulation: ViewEncapsulation.Emulated, // Encapsulación para estilos independientes
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
+
 export class ArticleItemComponent {
- products: Article[] = [
-  {
-  name: 'Zanahoria',
-  imageUrl: 'https://soycomocomo.es/media/2019/03/zanahorias.jpg',
-  price: 1,
-  isOnSale: true,
-  quantityInCart: 5  
-  },
-    {
-      name: 'Tomate',
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQj7Sc0I1cZ7uPRrqFqaH7PwZqTaHCp6p49w&s', 
-      price: 2,
-      isOnSale: false,
-      quantityInCart: 0,
-    },
- ]
+  @Input() article!: Article;
+  @Output() quantityChange = new EventEmitter<ArticleQuantityChange>();
 
-  // Métodos para los botones de producto
-  increaseQuantity(product: Article): void { //Al haber creado el array de productos, modificamos el método pasándole por parámetro el producto Article
-    if (product.isOnSale) {
-      product.quantityInCart++; // Aumenta la cantidad en el carrito
-      console.log(`Cantidad de ${product.name}: ${product.quantityInCart}`);
+  increaseQuantity(): void {
+    if (this.article) {
+      this.quantityChange.emit({ article: this.article, change: 1 });
+    }
+  }
+  ngOnInit() {
+    console.log('Artículo recibido:', this.article);
+  }
+  decreaseQuantity(): void {
+    if (this.article && this.article.quantityInCart > 0) {
+      this.quantityChange.emit({ article: this.article, change: -1 });
     }
   }
 
-  decreaseQuantity(product: Article): void {
-    if (product.isOnSale && product.quantityInCart > 0) {
-      product.quantityInCart--; // Disminuye la cantidad en el carrito
-      console.log(`Cantidad de ${product.name}: ${product.quantityInCart}`);
-    }
-  }
 }
