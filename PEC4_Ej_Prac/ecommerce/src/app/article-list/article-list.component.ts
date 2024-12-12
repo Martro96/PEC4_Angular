@@ -1,22 +1,31 @@
 import { Component } from '@angular/core';
 import { Article } from '../article-item/article-item.interface';
 import { ArticleItemComponent, ArticleQuantityChange } from '../article-item/article-item.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-article-list',
   standalone: true, // Es un componente independiente
-  imports: [ArticleItemComponent],
+  imports: [CommonModule, ArticleItemComponent],
 
-  /*Usamos template y styles en línea por enunciado ejercicio 7 */
-  template: `
- <app-article-item
-  *ngFor="let article of products"
+  /*Usamos template y styles en línea por enunciado ejercicio 7 
+  Es la información que no se me renderiza 
+  template: `<h1>Listado de productos:</h1> 
+   <app-article-item *ngFor="let article of products"
   [article]="article"
   (quantityChange)="onQuantityChange($event)">
 </app-article-item>
+`*/
+template: `<h1>Listado de productos</h1>
+<ul>
+  @for (article of products; track article.id) {
+    <li> {{article.id}}</li>
+  }
+</ul>
+
 `,
   styles: [`
-    h2 {
+    h1 {
       text-align: center;
     }
   `]
@@ -49,7 +58,7 @@ export class ArticleListComponent {
       quantityInCart: 0,
     }
   ];
-  
+
   trackById(index: number, item: Article): number {
     return item.id; // Usamos 'id' para identificar de forma única cada producto
   }
@@ -62,5 +71,5 @@ export class ArticleListComponent {
       console.log(`Cantidad de ${this.products[index].name}: ${this.products[index].quantityInCart}`);
     }
   }
-  
+
 }
