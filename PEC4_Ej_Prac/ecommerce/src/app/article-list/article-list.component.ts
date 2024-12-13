@@ -5,31 +5,11 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-article-list',
-  standalone: true, // Es un componente independiente
+  standalone: true, 
   imports: [CommonModule, ArticleItemComponent],
-
-  /*Usamos template y styles en línea por enunciado ejercicio 7 
-  Es la información que no se me renderiza 
-  template: `<h1>Listado de productos:</h1> 
-   <app-article-item *ngFor="let article of products"
-  [article]="article"
-  (quantityChange)="onQuantityChange($event)">
-</app-article-item>
-`*/
-template: `<h1>Listado de productos</h1>
-<ul>
-  @for (article of products; track article.id) {
-    <li> {{article.id}}</li>
-  }
-</ul>
-
-`,
-  styles: [`
-    h1 {
-      text-align: center;
-    }
-  `]
+  templateUrl: './article-list.component.html', /*Esto según el ejercicio 7 debería estar en un template en línea pero lo he puesto así para entender el error del renderizado*/
 })
+
 export class ArticleListComponent {
   // Lista de productos
   products: Article[] = [
@@ -62,6 +42,7 @@ export class ArticleListComponent {
   trackById(index: number, item: Article): number {
     return item.id; // Usamos 'id' para identificar de forma única cada producto
   }
+
   // Traspaso de la lógica de aumento y reducción de productos a este componente: 
   onQuantityChange(event: ArticleQuantityChange): void {
     const { article, change } = event;
