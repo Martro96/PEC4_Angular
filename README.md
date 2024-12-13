@@ -44,3 +44,11 @@ He intentado gestionarlo y solucionarlo de diferentes formas, como intentar usar
 
 Por ello, prefiero dejarlo así y esperar a la corrección del profesor porque siento que si continúo con esto voy a liarme más. 
 
+### **Solución ejercicio 7**
+Después de darle varias vueltas a los errores del ejercicio 7, conseguí identificar qué estaba fallando y aplicar algunos cambios que solucionaron el problema del renderizado y la lógica entre los componentes.
+
+Primero, ajusté el app.component para que apuntara directamente a article-list, asegurándome de que la aplicación cargara bien el componente principal y no se quedara en blanco. También eliminé varios imports en los componentes article-item y article-list que no correspondían y que creo que estaban creando conflictos. Al dejarlos más limpios, todo empezó a fluir mejor.
+
+Por último, modifiqué el HTML de article-list para que pudiera recoger correctamente el evento que venía de article-item. Gracias a esto, ya funciona la lógica de incremento y decremento después de haberla trasladado al lugar correcto.
+
+Con estos cambios, conseguí que los artículos se rendericen como esperaba y desaparecieron los errores de undefined. 
